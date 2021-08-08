@@ -24,6 +24,6 @@
 
 # Ignore test-related files
 /coverage.data
-/coverage/
+/coverage/*
 # Ignore application configuration
 /config/application.yml
