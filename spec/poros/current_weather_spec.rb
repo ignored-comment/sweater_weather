@@ -24,8 +24,8 @@ RSpec.describe 'Current Weather Poro' do
             }
             poro = CurrentWeather.new(beijing_current_weather)
 
-            expect(poro.date_time).to be_a(String)
-            expect(poro.date_time).to eq('2021-08-08 16:26:25 -0400')
+            expect(poro.datetime).to be_a(String)
+            expect(poro.datetime).to eq('2021-08-08 16:26:25 -0400')
             expect(poro.conditions).to be_a(String)
             expect(poro.conditions).to eq('light rain')
             expect(poro.feels_like).to be_a(Float)
