@@ -8,8 +8,10 @@ RSpec.describe 'Weather Poro' do
 
             beijing = Weather.new(data)
 
-            expect(beijin.id).to be(Nil)
+            expect(beijing.id).to be_nil
             expect(beijing.current_weather).to be_instance_of CurrentWeather
+            expect(beijing.daily_weather.first).to be_instance_of DailyWeather
+            expect(beijing.daily_weather.count).to be(5)
         end
     end
 end
