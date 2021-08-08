@@ -78,4 +78,12 @@ RSpec.describe 'Forecast Index' do
             expect(forecast[:data][:attributes][:daily_weather].first).to_not have_key(:uvi)
         end
     end
+
+    describe 'sad paths' do
+        it 'can return an error for not including a city and state in params' do
+            get '/api/v1/forecast'
+            expect(response.body).to eq("{\"errors\":\"No location given\"}")
+            expect(response.status).to eq(400)
+        end
+    end
 end
