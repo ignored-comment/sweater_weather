@@ -1,4 +1,4 @@
-class PhotoSerializer
+class BackgroundsSerializer
   include FastJsonapi::ObjectSerializer
   attributes :image
 

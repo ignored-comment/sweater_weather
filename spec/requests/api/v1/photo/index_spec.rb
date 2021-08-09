@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Forecast Index' do
     describe 'happy paths', :vcr do
         it 'can get the weather for a city' do
-            get '/api/v1/photo', params: {location: "galveston,tx"}
+            get '/api/v1/backgrounds', params: {location: "galveston,tx"}
             photo = JSON.parse(response.body, symbolize_names: true)
 
             expect(response).to be_successful
