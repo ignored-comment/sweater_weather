@@ -2,7 +2,7 @@ class BreweryService
     class << self
         def get_breweries(location, quantity)
             response = conn.get("/breweries?by_dist=#{location[0]},#{location[1]}")
-            parse_json(response).first(quantity)
+            parse_json(response).first(quantity.to_i)
         end
 
         private

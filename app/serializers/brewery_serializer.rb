@@ -1,6 +1,6 @@
 class BrewerySerializer
   include FastJsonapi::ObjectSerializer
-  attributes :breweries, :forecast
+  attributes :destination, :forecast, :breweries
 
   set_type :forecast
 end

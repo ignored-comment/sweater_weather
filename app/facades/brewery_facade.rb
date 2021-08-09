@@ -7,7 +7,8 @@ class BreweryFacade
         end
 
         def get_weather(location)
-            weather = ForecastFacade.get_hourly_daily_current_weather(location[0], location[1]).current_weather
+            weather = ForecastFacade.get_hourly_daily_current_weather(location[0], location[1])
+            weather.current_weather
         end
     end
 end
