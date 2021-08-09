@@ -45,7 +45,7 @@ RSpec.describe 'Forecast Index' do
 
     describe 'sad paths' do
         it 'can return an error for not including a city and state in params' do
-            get '/api/v1/forecast'
+            get '/api/v1/backgrounds'
             expect(response.body).to eq("{\"errors\":\"No location given\"}")
             expect(response.status).to eq(400)
         end
