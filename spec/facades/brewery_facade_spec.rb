@@ -1,16 +1,15 @@
-# require 'rails_helper'
+require 'rails_helper'
 
-# RSpec.describe 'BreweryFacade' do
-#     it 'returns brewery objects' do
-#         location = MapFacade.get_lat_long("Houston,TX")
+RSpec.describe 'BreweryFacade' do
+    it 'returns brewery objects' do
+        city_state = "Houston,TX"
+        location = MapFacade.get_lat_long(city_state)
+        response = BreweryFacade.get_city_current_weather_and_breweries(city_state, [location.lat, location.lng], 3)
 
-#         response = ForecastFacade.get_hourly_daily_current_weather(location.lat, location.lng)
-
-#         expect(response).to be_a(Forecast)
-#         expect(response.current_weather).to be_a(CurrentWeather)
-#         expect(response.hourly_weather).to be_a(Array)
-#         expect(response.hourly_weather.first).to be_a(HourlyWeather)
-#         expect(response.daily_weather).to be_a(Array)
-#         expect(response.daily_weather.first).to be_a(DailyWeather)
-#     end
-# end
+        expect(response).to be_a(Brewery)
+        expect(response.destination).to be_a(String)
+        expect(response.breweries).to be_a(Array)
+        expect(response.breweries.count).to eq(3)
+        expect(response.forecast).to be_a(Hash)
+    end
+end
