@@ -1,4 +1,4 @@
-class Api::V1::BreweryController < ApplicationController
+class Api::V1::BreweriesController < ApplicationController
     def index
         if params[:location] && params[:quantity]
             location = MapFacade.get_lat_long(params[:location])

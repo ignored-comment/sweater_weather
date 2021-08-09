@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Brewery Index' do
     describe 'happy paths' do
         it 'can get the breweries, weather, and destination for a city' do
-            get '/api/v1/brewery', params: {location: "galveston,tx", quantity: 2}
+            get '/api/v1/breweries', params: {location: "galveston,tx", quantity: 2}
             brewery = JSON.parse(response.body, symbolize_names: true)
 
             expect(response).to be_successful
@@ -28,7 +28,7 @@ RSpec.describe 'Brewery Index' do
 
     describe 'sad paths' do
         it 'can return an error for not including a city and state in params' do
-            get '/api/v1/brewery'
+            get '/api/v1/breweries'
             expect(response.body).to eq("{\"errors\":\"No location given\"}")
             expect(response.status).to eq(400)
         end
