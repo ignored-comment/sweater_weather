@@ -5,32 +5,40 @@ RSpec.describe 'Map Facade' do
         it 'can return a Location object' do
             location = MapFacade.get_lat_long("Charlotte, NC")
             expect(location).to be_a(Location)
-            expect(location.lat).to eq(35.222936)
-            expect(location.lng).to eq(-80.840161)
+            expect(location.lat).to be_a(Float)
+            expect(location.lng).to be_a(Float)
         end
 
         it 'can return a Location object for Huntersville NC' do
             location = MapFacade.get_lat_long("Huntersville,NC")
 
             expect(location).to be_a(Location)
-            expect(location.lat).to eq(35.410565)
-            expect(location.lng).to eq(-80.848994)
+            expect(location.lat).to be_a(Float)
+            expect(location.lng).to be_a(Float)
         end
 
         it 'can return a Location object for Sheffield, UK' do
             location = MapFacade.get_lat_long("Sheffield, UK")
 
             expect(location).to be_a(Location)
-            expect(location.lat).to eq(53.34347)
-            expect(location.lng).to eq(-1.38213)
+            expect(location.lat).to be_a(Float)
+            expect(location.lng).to be_a(Float)
         end
 
         it 'can return a Location object for Beijing, China' do
             location = MapFacade.get_lat_long("Beijing, China")
 
             expect(location).to be_a(Location)
-            expect(location.lat).to eq(39.90647)
-            expect(location.lng).to eq(116.391195)
+            expect(location.lat).to be_a(Float)
+            expect(location.lng).to be_a(Float)
+        end
+    end
+
+    describe 'returns the route when inputting cities' do
+        it 'can return a route object' do
+            route = MapFacade.get_route("Charlotte, NC", "Huntersville, NC")
+
+            expect(route).to be_a(Route)
         end
     end
 end

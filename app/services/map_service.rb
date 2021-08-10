@@ -5,6 +5,11 @@ class MapService
             parse_json(response)
         end
 
+        def get_route(starting_destination, ending_destination)
+            response = conn.get("/directions/v2/route?key=#{ENV['MAPQUEST_API']}&from=#{starting_destination}&to=#{ending_destination}")
+            parse_json(response)
+        end
+
         private
 
         def conn
