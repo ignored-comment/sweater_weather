@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 2021_08_09_222231) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "api_key"
-    t.index ["api_key"], name: "index_users_on_api_key", unique: true
   end
 
 end

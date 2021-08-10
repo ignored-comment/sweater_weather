@@ -14,7 +14,7 @@ RSpec.describe 'Users Create' do
             }
 
             post '/api/v1/users', headers: headers, params: body.to_json
-            user = JSON.parse(response.body, symbolize_names:true)
+            user = JSON.parse(response.body, symbolize_names: true)
 
             expect(response).to be_successful
             expect(response.status).to eq(201)
@@ -44,7 +44,7 @@ RSpec.describe 'Users Create' do
             }
 
             post '/api/v1/users', headers: headers, params: body.to_json
-            user = JSON.parse(response.body, symbolize_names:true)
+            user = JSON.parse(response.body, symbolize_names: true)
 
             expect(response.body).to eq("{\"errors\":\"Password does not match or field is blank\"}")
             expect(response.status).to eq(400)
@@ -62,7 +62,7 @@ RSpec.describe 'Users Create' do
             }
 
             post '/api/v1/users', headers: headers, params: body.to_json
-            user1 = JSON.parse(response.body, symbolize_names:true)
+            user1 = JSON.parse(response.body, symbolize_names: true)
 
             expect(response).to be_successful
             expect(response.status).to eq(201)
@@ -78,7 +78,7 @@ RSpec.describe 'Users Create' do
             }
 
             post '/api/v1/users', headers: headers, params: body.to_json
-            user2 = JSON.parse(response.body, symbolize_names:true)
+            user2 = JSON.parse(response.body, symbolize_names: true)
 
             expect(response.body).to eq("{\"errors\":\"Email already in use\"}")
             expect(response.status).to eq(409)
@@ -96,7 +96,7 @@ RSpec.describe 'Users Create' do
             }
 
             post '/api/v1/users', headers: headers, params: body.to_json
-            user2 = JSON.parse(response.body, symbolize_names:true)
+            user2 = JSON.parse(response.body, symbolize_names: true)
 
             expect(response.body).to eq("{\"errors\":\"Cannot create a user\"}")
             expect(response.status).to eq(400)
@@ -114,7 +114,7 @@ RSpec.describe 'Users Create' do
             }
 
             post '/api/v1/users', headers: headers, params: body.to_json
-            user2 = JSON.parse(response.body, symbolize_names:true)
+            user2 = JSON.parse(response.body, symbolize_names: true)
 
             expect(response.body).to eq("{\"errors\":\"Cannot create a user\"}")
             expect(response.status).to eq(400)
@@ -132,7 +132,7 @@ RSpec.describe 'Users Create' do
             }
 
             post '/api/v1/users', headers: headers, params: body.to_json
-            user2 = JSON.parse(response.body, symbolize_names:true)
+            user2 = JSON.parse(response.body, symbolize_names: true)
 
             expect(response.body).to eq("{\"errors\":\"Password does not match or field is blank\"}")
             expect(response.status).to eq(400)
@@ -150,7 +150,7 @@ RSpec.describe 'Users Create' do
             }
 
             post '/api/v1/users', headers: headers, params: body.to_json
-            user2 = JSON.parse(response.body, symbolize_names:true)
+            user2 = JSON.parse(response.body, symbolize_names: true)
 
             expect(response.body).to eq("{\"errors\":\"Password does not match or field is blank\"}")
             expect(response.status).to eq(400)
