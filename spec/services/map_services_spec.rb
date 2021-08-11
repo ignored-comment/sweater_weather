@@ -8,9 +8,7 @@ RSpec.describe 'Map Service' do
             expect(response).to be_a(Hash)
             expect(response[:results][0][:locations][0][:latLng]).to be_a(Hash)
             expect(response[:results][0][:locations][0][:latLng][:lat]).to be_a(Float)
-            expect(response[:results][0][:locations][0][:latLng][:lat]).to eq(35.222936)
             expect(response[:results][0][:locations][0][:latLng][:lng]).to be_a(Float)
-            expect(response[:results][0][:locations][0][:latLng][:lng]).to eq(-80.840161)
         end
 
         it 'can get latitude and longitude from a two-worded city' do
@@ -18,9 +16,7 @@ RSpec.describe 'Map Service' do
 
             expect(response).to be_a(Hash)
             expect(response[:results][0][:locations][0][:latLng][:lat]).to be_a(Float)
-            expect(response[:results][0][:locations][0][:latLng][:lat]).to eq(37.78008)
             expect(response[:results][0][:locations][0][:latLng][:lng]).to be_a(Float)
-            expect(response[:results][0][:locations][0][:latLng][:lng]).to eq(-122.420168)
         end
 
         it 'can get latitude and longitude from a three-worded city' do
@@ -28,9 +24,7 @@ RSpec.describe 'Map Service' do
 
             expect(response).to be_a(Hash)
             expect(response[:results][0][:locations][0][:latLng][:lat]).to be_a(Float)
-            expect(response[:results][0][:locations][0][:latLng][:lat]).to eq(40.713054)
             expect(response[:results][0][:locations][0][:latLng][:lng]).to be_a(Float)
-            expect(response[:results][0][:locations][0][:latLng][:lng]).to eq(-74.007228)
         end
 
         it 'can get latitude and longitude from a mispelled city' do
@@ -38,9 +32,16 @@ RSpec.describe 'Map Service' do
 
             expect(response).to be_a(Hash)
             expect(response[:results][0][:locations][0][:latLng][:lat]).to be_a(Float)
-            expect(response[:results][0][:locations][0][:latLng][:lat]).to eq(39.79936)
             expect(response[:results][0][:locations][0][:latLng][:lng]).to be_a(Float)
-            expect(response[:results][0][:locations][0][:latLng][:lng]).to eq(-89.643624)
+        end
+    end
+
+    describe 'get route' do
+        it 'can get a response for the route and estimated travel time' do
+            response = MapService.get_route("Charlotte, NC", "Galveston, TX")
+
+            expect(response).to be_a(Hash)
+            expect(response[:route]).to be_a(Hash)
         end
     end
 end
