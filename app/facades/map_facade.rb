@@ -8,9 +8,13 @@ class MapFacade
 
         def get_route(starting_destination, ending_destination)
             json = MapService.get_route(starting_destination, ending_destination)
-            map_data = json[:route]
-            forecast = get_ending_destination_forecast(ending_destination) 
-            Route.new(map_data, forecast)
+            if json[:info][:statuscode] != 0
+                NoRoute.new(starting_destination, ending_destination)
+            else
+                map_data = json[:route]
+                forecast = get_ending_destination_forecast(ending_destination) 
+                Route.new(map_data, forecast)
+            end
         end
 
         def get_ending_destination_forecast(ending_destination)
