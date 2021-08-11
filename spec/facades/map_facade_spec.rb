@@ -35,10 +35,26 @@ RSpec.describe 'Map Facade' do
     end
 
     describe 'returns the route when inputting cities' do
-        it 'can return a route object' do
+        it "can return a route object from charlotte nc to huntersville nc" do
             route = MapFacade.get_route("Charlotte, NC", "Huntersville, NC")
 
             expect(route).to be_a(Route)
+            expect(route.id).to be_nil
+            expect(route.start_city).to be_a(String)
+            expect(route.end_city).to be_a(String)
+            expect(route.travel_time).to be_a(String)
+            expect(route.weather_at_eta).to be_a(Hash)
+        end
+
+        it "can return a route object from atlanta ga to charlotte nc" do
+            route = MapFacade.get_route("Atlanta, GA", "Charlotte, NC")
+
+            expect(route).to be_a(Route)
+            expect(route.id).to be_nil
+            expect(route.start_city).to be_a(String)
+            expect(route.end_city).to be_a(String)
+            expect(route.travel_time).to be_a(String)
+            expect(route.weather_at_eta).to be_a(Hash)
         end
     end
 end
