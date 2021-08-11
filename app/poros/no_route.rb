@@ -7,8 +7,8 @@ class NoRoute
 
     def initialize(starting_destination, ending_destination)
         @id = nil
-        @start_city = "#{starting_destination.split[0].capitalize}, #{starting_destination.split[1].upcase}"
-        @end_city = "#{ending_destination.split[0].capitalize}, #{ending_destination.split[1].upcase}"
+        @start_city = "#{starting_destination.split(",").first.capitalize}, #{starting_destination.split(",").last.upcase}"
+        @end_city = "#{ending_destination.split(",").first.capitalize}, #{ending_destination.split(",").last.upcase}"
         @travel_time = "Impossible"
         @weather_at_eta = {}
     end
