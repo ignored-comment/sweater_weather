@@ -22,7 +22,6 @@ RSpec.describe 'Current Weather Poro' do
             poro = HourlyWeather.new(beijing_hourly_weather)
 
             expect(poro.datetime).to be_a(String)
-            expect(poro.datetime).to eq("2021-08-08 17:00:00 -0400")
             expect(poro.temp).to be_a(Float)
             expect(poro.temp).to eq(71.49)
             expect(poro.conditions).to be_a(String)

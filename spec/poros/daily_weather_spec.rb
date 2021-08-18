@@ -27,11 +27,8 @@ RSpec.describe 'Current Weather Poro' do
             poro = DailyWeather.new(beijing_daily_weather)
 
             expect(poro.datetime).to be_a(String)
-            expect(poro.datetime).to eq("2021-08-09 00:00:00 -0400")
             expect(poro.sunrise).to be_a(String)
-            expect(poro.sunrise).to eq("2021-08-08 17:20:17 -0400")
             expect(poro.sunset).to be_a(String)
-            expect(poro.sunset).to eq("2021-08-09 07:19:45 -0400")
             expect(poro.max_temp).to be_a(Float)
             expect(poro.max_temp).to eq(90.07)
             expect(poro.min_temp).to be_a(Float)
