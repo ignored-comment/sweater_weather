@@ -4,6 +4,7 @@ rbenv:
 services:
   - postgresql
 before_install:
+  - bundle config set --local deployment 'true'
   - gem install bundler -v '2.2.24'
 before_script:
   - bundle install
