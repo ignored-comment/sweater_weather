@@ -4,10 +4,8 @@ rbenv:
 services:
   - postgresql
 before_install:
-  - gem install bundler -v '2.2.24'
+  - gem install bundler
 before_script:
   - bundle install
-  - bundle exec rake db:create
-  - bundle exec rake db:migrate
 script: 
   - bundle exec rspec
